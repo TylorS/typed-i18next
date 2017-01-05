@@ -1,0 +1,58 @@
+{
+  "name": "@typed/i18next",
+  "version": "0.0.0",
+  "description": "Typed version of 18next",
+  "main": "lib/index.commonjs.js",
+  "jsnext:main": "lib.es2015/index.es2015.js",
+  "module": "lib.es2015/index.es2015.js",
+  "typings": "lib.es2015/index.es2015.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run build:es2015 && npm run build:commonjs",
+    "build:commonjs": "tsc -P .config/tsconfig.commonjs.json",
+    "build:es2015": "tsc -P .config/tsconfig.es2015.json",
+    "changelog": "conventional-changelog --infile CHANGELOG.md --same-file --release-count 0 --preset angular",
+    "clean": "rimraf lib lib.es2015",
+    "commit": "git-cz",
+    "postchangelog": "git add CHANGELOG.md && git commit -m 'docs(CHANGELOG): append to changelog'",
+    "postversion": "npm run changelog && git push origin master --tags && npm publish --access=public",
+    "preversion": "npm run build",
+    "release:minor": "npm version minor -m 'chore(package): v%s'",
+    "release:major": "npm version major -m 'chore(package): v%s'",
+    "test": "npm run test:lint",
+    "test:lint": "tslint src/**/*.ts src/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylorS/typed-i18next.git"
+  },
+  "keywords": [
+    "i18next",
+    "typescript"
+  ],
+  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TylorS/typed-i18next/issues"
+  },
+  "homepage": "https://github.com/TylorS/typed-i18next#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    }
+  },
+  "devDependencies": {
+    "@motorcycle/tslint": "^1.2.0",
+    "@types/node": "^6.0.57",
+    "commitizen": "^2.9.3",
+    "conventional-changelog-cli": "^1.2.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "ghooks": "^2.0.0",
+    "rimraf": "^2.5.4",
+    "tslint": "^4.2.0",
+    "typescript": "^2.1.4",
+    "validate-commit-msg": "^2.8.2"
+  },
+  "dependencies": {
+    "i18next": "^4.1.4"
+  }
+}
