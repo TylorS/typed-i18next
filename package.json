@@ -1,6 +1,6 @@
 {
   "name": "@typed/i18next",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Typed version of 18next",
   "main": "lib/index.commonjs.js",
   "jsnext:main": "lib.es2015/index.es2015.js",
