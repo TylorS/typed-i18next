@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@motorcycle/tslint": "^1.2.0",
-    "@types/node": "^6.0.57",
+    "@types/node": "^7.0.4",
     "commitizen": "^2.9.3",
     "conventional-changelog-cli": "^1.2.0",
     "cz-conventional-changelog": "^1.2.0",
@@ -53,6 +53,6 @@
     "validate-commit-msg": "^2.8.2"
   },
   "dependencies": {
-    "i18next": "^4.1.4"
+    "i18next": "^6.0.2"
   }
 }
